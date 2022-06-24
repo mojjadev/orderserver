@@ -25,8 +25,8 @@ public class OrderService {
     }
 
     @Transactional
-    public OrderDomain updaeOrder(OrderDomain orderDomain, Long id) throws Exception {
-        OrderDomain orderDomain1 = orderDomainRepository.findById(id).orElseThrow(() -> new Exception("오류 발생"));
+    public OrderDomain updaeOrder(OrderDomain orderDomain, Long id){
+        OrderDomain orderDomain1 = orderDomainRepository.findById(id).orElseThrow(() -> new NullPointerException("오류 발생"));
         orderDomain1.setOrderCode(orderDomain.getOrderCode());
         orderDomain1.setOrderObject(orderDomain.getOrderObject());
         orderDomain1.setOrderPrice(orderDomain.getOrderPrice());
